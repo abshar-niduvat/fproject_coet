@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!-- Title -->
+        <title>Health Care Chat Bot</title>
+
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/plugins/font-awesome/css/all.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'assets/css/connect.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/css/dark_theme.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="auth-page sign-in">
+
+{#        <div class='loader'>#}
+{#            <div class='spinner-grow text-primary' role='status'>#}
+{#                <span class='sr-only'>Loading...</span>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="connect-container align-content-stretch d-flex flex-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="auth-form">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="logo-box"><a href="#" class="logo-text">Welcome to Health-bot</a>
+</div>
+                                    {% if form.errors %}
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                             {{form.errors}}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                {% endif %}
+              <form method="post">
+                  {% csrf_token %}
+              <div class="card">
+                                        <div class="card-body">
+                                            <div class="post">
+
+
+                                                <div class="post-comments">
+                                                    <div class="post-comm">
+                                                        <img src="{% static 'assets/images/avatars/profile-image-2.png' %}" class="comment-img">
+                                                        <div class="comment-container">
+                                                            <span class="comment-author">
+                                                                Select the one you meant
+                                                            </span>
+                                                        </div>
+                                                        <span class="comment-text">
+                                                            {% for val in msg %}
+                                                                {{ forloop.counter0 }} : {{ val }}<br>
+                                                            {% endfor %}
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="new-comment">
+                                                        <form method="post" >
+
+                                                            <div class="input-group">
+                                                                <input type="number" name="Existes" class="form-control search-input" placeholder="Type only corresponding number">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-secondary" type="submit" >Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+              </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block d-xl-block">
+                        <div class="auth-image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'assets/plugins/jquery/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/bootstrap/popper.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'assets/js/connect.min.js' %}"></script>
+    </body>
+</html>
