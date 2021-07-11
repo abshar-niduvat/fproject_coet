@@ -11,4 +11,4 @@ class symp(forms.Form):
     Noq = forms.CharField(label='no', max_length=100)
 
 class nod(forms.Form):
-    Existes = forms.CharField(label='Number Of Days', max_length=100)
+    Existes  = forms.CharField(label='Number Of Days', max_length=100)

@@ -184,7 +184,8 @@ def tree_to_code_inital(tree, feature_names, nod, symp):
             if num!=0:
                 return (cnf_dis)
             else:
-                symptom_generator(symp="fever", nod=nod, numb=0)
+                ans = symptom_generator(symp="fever", nod=nod, numb=0)
+                return ans
         else:
             return("Enter Valid Symptom")
 
@@ -224,7 +225,6 @@ def tree_to_code_symptom(tree, feature_names, nod, symp, numb):
         if tree_.feature[node] != _tree.TREE_UNDEFINED:
             name = feature_name[node]
             threshold = tree_.threshold[node]
-            print("kayari")
             if name == disease_input:
                 val = 1
             else:
@@ -277,7 +277,7 @@ def tree_to_code(tree, feature_names, nod, symp, numb, symp_exp_):
             disease_input = cnf_dis[conf_inp]
             break
         else:
-            return("Enter Valid Symptom")
+            return "Enter Valid Symptom"
             break
 
     def recurse(node, depth):
@@ -302,13 +302,17 @@ def tree_to_code(tree, feature_names, nod, symp, numb, symp_exp_):
             second_prediction=sec_predict(symptoms_exp)
             calc_condition(symptoms_exp,num_days)
             if(present_disease[0]==second_prediction[0]):
-                result_lis.append(str(("You may have ", present_disease[0])))
-                result_lis.append(str(description_list[present_disease[0]]))
+                result_lis.append("You may have "+str(present_disease[0]))
+                val=""
+                for x in description_list[present_disease[0]]:
+                    val=str(x)+" "
+                result_lis.append(val)
 
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
             else:
-                result_lis.append(str(("You may have ", present_disease[0], "or ", second_prediction[0])))
+                val= "You may have " +str(present_disease[0])+"or "+str(second_prediction[0])
+                result_lis.append(val)
                 result_lis.append(str((description_list[present_disease[0]])))
                 result_lis.append(str((description_list[second_prediction[0]])))
 
@@ -390,7 +394,8 @@ def tree_to_code_measure(tree, feature_names, nod, symp, numb, symp_exp_):
             precution_list=precautionDictionary[present_disease[0]]
             print("Take following measures : ")
             for  i,j in enumerate(precution_list):
-                result_lis.append(str((i+1,")",j)))
+                val=str(i+1)+") "+str(j)
+                result_lis.append(val)
                 print(i+1,")",j)
     recurse(0, 1)
     return result_lis
@@ -409,6 +414,7 @@ def result_generator(symp, nod, numb,symp_exp_):
     getprecautionDict()
     ans = tree_to_code(clf, cols, nod, symp,numb,symp_exp_)
     return ans
+
 def measure_generator(symp, nod, numb,symp_exp_):
     getSeverityDict()
     getDescription()

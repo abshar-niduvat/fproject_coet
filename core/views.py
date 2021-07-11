@@ -14,7 +14,6 @@ def info(request):
         form2 = nod(request.POST)
         form1 = symp(request.POST)
         if form2.is_valid():
-            # print("Enteredd5555555555555555555555555")
             request.session['nod'] = form2.cleaned_data['Existes']
             ans=symptom_generator(request.session['symptom'], request.session['no_days'], int(request.session['nod']))
             form1 = symp()
@@ -29,10 +28,7 @@ def info(request):
             request.session['no_days'] = form.cleaned_data['No_Days']
             msg = initial_executer(request.session['symptom'], request.session['no_days'])
             form2 = nod()
-            print(msg)
-            print("Enteredd5555555555555555555555555")
             return render(request, 'severe.html', {'form': form2, 'msg': msg})
-
 
         if form1.is_valid():
             noq = int(form1.cleaned_data['Noq'])
@@ -45,7 +41,6 @@ def info(request):
                     if request.session[key] == "ch":
                         qst = key
                         break
-
                 return render(request, 'qst.html', {'form': form1, 'no_que': noq, 'qst': qst})
             else:
                 listed=[]
@@ -54,6 +49,5 @@ def info(request):
                         listed.append(key)
                 ans=result_generator(request.session['symptom'], request.session['no_days'], int(request.session['nod']), listed)
                 mes=measure_generator(request.session['symptom'], request.session['no_days'], int(request.session['nod']), listed)
-
                 return render(request, 'final.html', {'res': ans, 'measure':mes})
     return render(request, 'login.html', {'form': form})
