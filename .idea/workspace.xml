@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac5f989a-b25d-46fb-a692-30f346c29115" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/chat_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/chat_bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/apply.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,9 @@
       <workItem from="1625915977061" duration="1635000" />
       <workItem from="1625943287521" duration="4375000" />
       <workItem from="1625954863911" duration="11430000" />
-      <workItem from="1626014545146" duration="839000" />
+      <workItem from="1626014545146" duration="1609000" />
+      <workItem from="1626020314967" duration="579000" />
+      <workItem from="1626026531598" duration="254000" />
     </task>
     <servers />
   </component>

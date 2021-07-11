@@ -184,7 +184,7 @@ def tree_to_code_inital(tree, feature_names, nod, symp):
             if num!=0:
                 return (cnf_dis)
             else:
-                ans = symptom_generator(symp="fever", nod=nod, numb=0)
+                ans = "Drt"
                 return ans
         else:
             return("Enter Valid Symptom")
@@ -215,6 +215,7 @@ def tree_to_code_symptom(tree, feature_names, nod, symp, numb):
                 conf_inp = numb
             else:
                 conf_inp = 0
+            print(conf_inp)
             disease_input = cnf_dis[conf_inp]
             break
         else:
@@ -261,7 +262,6 @@ def tree_to_code(tree, feature_names, nod, symp, numb, symp_exp_):
 
     chk_dis=",".join(feature_names).split(",")
     symptoms_present = []
-
 
     # conf_inp=int()
     while True:
@@ -380,13 +380,9 @@ def tree_to_code_measure(tree, feature_names, nod, symp, numb, symp_exp_):
             second_prediction=sec_predict(symptoms_exp)
             calc_condition(symptoms_exp,num_days)
             if(present_disease[0]==second_prediction[0]):
-
-
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
             else:
-
-
                 print("You may have ", present_disease[0], "or ", second_prediction[0])
                 print(description_list[present_disease[0]])
                 print(description_list[second_prediction[0]])
@@ -401,10 +397,16 @@ def tree_to_code_measure(tree, feature_names, nod, symp, numb, symp_exp_):
     return result_lis
 
 def initial_executer(symp, nod):
+    getSeverityDict()
+    getDescription()
+    getprecautionDict()
     ans=tree_to_code_inital(clf, cols,nod,symp)
     return ans
 
 def symptom_generator(symp, nod, numb):
+    getSeverityDict()
+    getDescription()
+    getprecautionDict()
     ans = tree_to_code_symptom(clf, cols, nod, symp, numb)
     return ans
 

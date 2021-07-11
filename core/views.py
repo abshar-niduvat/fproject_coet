@@ -27,8 +27,19 @@ def info(request):
             request.session['symptom'] = form.cleaned_data['Symptom']
             request.session['no_days'] = form.cleaned_data['No_Days']
             msg = initial_executer(request.session['symptom'], request.session['no_days'])
-            form2 = nod()
-            return render(request, 'severe.html', {'form': form2, 'msg': msg})
+            if msg == "Drt":
+                request.session['nod'] = 0
+                ans = symptom_generator(request.session['symptom'], request.session['no_days'],
+                                        int(request.session['nod']))
+                form1 = symp()
+                noq = len(ans)
+                for i in ans:
+                    request.session[i] = "ch"
+                qst = ans[0]
+                return render(request, 'qst.html', {'form': form1, 'no_que': noq, 'qst': qst})
+            else:
+                form2 = nod()
+                return render(request, 'severe.html', {'form': form2, 'msg': msg})
 
         if form1.is_valid():
             noq = int(form1.cleaned_data['Noq'])
